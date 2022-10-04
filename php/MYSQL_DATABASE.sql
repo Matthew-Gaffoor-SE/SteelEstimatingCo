@@ -31,11 +31,7 @@ CREATE TABLE `Listings` (
   `Type` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `Description` TEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `Claimed` tinyint DEFAULT '0',
-<<<<<<< HEAD
   `estimatorID` int ,
-=======
-  `estimatorID` int,
->>>>>>> parent of ef7a782 (Merge branch 'main' of https://github.com/Steel-Estimating-CO/phpProject)
   PRIMARY KEY (listingID),
   FOREIGN KEY (userID) REFERENCES Users(userID),
   FOREIGN KEY (estimatorID) REFERENCES Users(userID)
