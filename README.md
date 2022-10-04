@@ -1,2 +1,0 @@
-# SteelEstimatingCo
- Final Year Project
