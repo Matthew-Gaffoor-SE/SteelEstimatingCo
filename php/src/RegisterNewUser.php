@@ -34,13 +34,17 @@ include ('includes/conn.inc.php');
             <p class="word">&nbsp &nbsp Email Adress: </p><input class="input" type="Email" placeholder="Email" name="Email" required>
         </div>
 
+        <div class="input-group">
+            <p class="word">Password: </p><input class="input" type="Password" placeholder="Password" name="Password" required>
+        </div>
+
         <p class="ut">Select User Type: </p> <select name="Usertype" id="Usertype">
             <option value="Customer">Customer</option>
             <option value="Estimator">Estimator</option>
         </select>
 
         <div class="p-t-10">
-            <button class="btn" type="submit" name="signup" > Signup </button>
+            <button class="btn" type="submit" name="signup" onClick="alert('Please allow 24 hours for account access');"> Signup </button>
         </div>	
 </div>				
 </hi>

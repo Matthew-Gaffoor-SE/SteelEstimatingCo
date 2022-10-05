@@ -1,14 +1,11 @@
 .MenuBar
 {
     height: 10vh;
-    background-color: gray;
-    border: 1px solid black;
 }
 
 .MainPanel
 {
     height: 85vh;
-    border: 2px solid black;
 }
 
 .Logo
@@ -20,6 +17,64 @@
     font-weight: bolder;
 }
 
+.lib
+{
+  background-color: rgb(25, 154, 25);
+  color: white;
+  width: 20vh;
+}
+
+.lib:hover
+{
+  background-color: rgb(18, 119, 18);
+  cursor: pointer;
+}
+
+.sub
+{
+  background-color: white;
+  color: #717171;
+}
+
+.sub:hover
+{
+  background-color: rgb(237, 237, 237);
+  cursor: pointer;
+}
+
+.HeaderText
+{
+  margin-top: -70vh;
+  padding-left: 35vh;
+  font-size: 9vh;
+  font-weight: bolder;
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(65, 65, 65);
+}
+
+.MainText
+{
+  margin-left: 20vh;
+  font-size: 3vh;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #717171;
+}
+
+.DetailText
+{
+  margin-left: 40vh;
+  padding-top: 27vh;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #717171;
+}
+
+.AddressText
+{
+  margin-left: 18vh;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #717171;
+}
+
 .small
 {
     font-size: 16px;
@@ -29,10 +84,11 @@ button
 {
     float: right;
     margin-top: 2vh;
-    margin-right: 5vh;
+    margin-right: 2vh;
     height: 6vh;
     width: 18vh;
-    border: 1px solid black;
+    border: 1px solid gray;
+    font-size: 2vh;
 }
 
 .PictureSlider
