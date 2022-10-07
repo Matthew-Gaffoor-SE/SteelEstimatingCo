@@ -1,6 +1,7 @@
 <?php
 include ('includes/conn.inc.php');
-$stmt = $mysqli->prepare("INSERT INTO Listings(userID, Type, Title, Description) VALUES (?, ?, ?, ?)");
+$file = addslashes(file_get_contents($_FILES["image"]["tmp_name"]));
+$stmt = $mysqli->prepare("INSERT INTO Listings(userID, Type, Title, Description, image) VALUES (?, ?, ?, ?, '$file')");
 $stmt->bind_param('isss',
 $_POST['userID'],
 $_POST['Type'],

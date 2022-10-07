@@ -1,8 +1,8 @@
 <?php
 include ('includes/conn.inc.php');
-$stmt = $mysqli->prepare("SELECT listingID, userID, Type, Title, Description, Claimed, estimatorID FROM Listings WHERE userID=24");
+$stmt = $mysqli->prepare("SELECT listingID, userID, Type, Title, Description, image, Claimed, estimatorID FROM Listings WHERE userID=24");
 $stmt->execute();
-$stmt->bind_result($listingID, $userID, $Type, $Title, $Description, $Claimed, $estimatorID);
+$stmt->bind_result($listingID, $userID, $Type, $Title, $Description, $file, $Claimed, $estimatorID);
 $stmt->store_result();
 ?>
 
@@ -36,6 +36,7 @@ $stmt->store_result();
         <th>Type &emsp;</th>
         <th>Job Title &emsp;</th>
         <th>Job Description &emsp;</th>
+        <th>Uploaded Image &emsp;</th>
     </tr>
     <?php
     include ('includes/conn.inc.php');
@@ -45,16 +46,19 @@ $stmt->store_result();
 
     if ($count > 0)
     {
-        while ($stmt->fetch()) 
+        while ($row = mysqli_fetch_assoc($result))
         {
-            if ($Claimed == 1)
+            if ($Claimed = 1)
             {
                     echo "<tr>";
-                    echo "<td> &emsp; $listingID </td>";
-                    echo "<td> &emsp; $Type </td>";
-                    echo "<td> &emsp; $Title </td>";
-                    echo "<td>  $Description </td>";
-                    echo "</tr>"; 
+                    echo "<td>"; echo  $row['listingID']; echo "</td>";
+                    echo "<td>"; echo  $row['Type']; echo "</td>";
+                    echo "<td>"; echo  $row['Title']; echo "</td>";
+                    echo "<td>"; echo  $row['Description']; echo "</td>";
+                    echo "<td>";
+                    echo '<img src="data:image;base64,'.base64_encode($row['image']).'" alt="image" style="height: 100px; width: 100px;">';
+                    echo "</td>";
+                    echo "</tr>";
             }
         }
     }

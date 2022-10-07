@@ -37,6 +37,7 @@ $stmt->store_result();
         <th>Listing Type &emsp;</th>
         <th>Job Title &emsp;</th>
         <th>Description &emsp;</th>
+        <th>Status &emsp;</th>
         <th>Remove Listing &emsp;</th>
     </tr>
     <?php
@@ -58,9 +59,11 @@ $stmt->store_result();
                 echo "<td> &emsp; $Type </td>";
                 echo "<td> &emsp; $Title </td>";
                 echo "<td>  $Description </td>";
+                echo "<td>  Active </td>";
                 echo "<td>";
                 echo "<Form action=\"process/rejectlisting.php\" method=\"post\" id=\"removeListing\">";
-                if($Claimed == 0){
+                if($Claimed == 0)
+                {
                     $newClaimedVal = 4;
                 }
                 echo "<div class=\"CompOption6\" ><p class=\"CompText6\" id=\"removeBtn\">Remove Listing</p></div>";
@@ -78,9 +81,11 @@ $stmt->store_result();
                 echo "<td> &emsp; $Type </td>";
                 echo "<td> &emsp; $Title </td>";
                 echo "<td>  $Description </td>";
+                echo "<td>  Taken </td>";
                 echo "<td>";
                 echo "<Form action=\"process/rejectlisting.php\" method=\"post\" id=\"removeListing\">";
-                if($Claimed == 1){
+                if($Claimed == 1)
+                {
                     $newClaimedVal = 4;
                 }
                 echo "<div class=\"CompOption6\" ><p class=\"CompText6\" id=\"removeBtn\">Remove Listing</p></div>";

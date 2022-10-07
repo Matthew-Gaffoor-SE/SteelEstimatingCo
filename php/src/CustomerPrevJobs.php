@@ -40,7 +40,7 @@ $stmt->store_result();
     </tr>
     <?php
     include ('includes/conn.inc.php');
-    $sqli = "SELECT * FROM Listings WHERE userID=24 AND Claimed=2 AND Claimed=3 LIMIT 10";
+    $sqli = "SELECT * FROM Listings WHERE userID=24 AND Claimed=2 OR Claimed=3 LIMIT 10";
     $result = mysqli_query($mysqli, $sqli);
     $count = mysqli_num_rows($result);
 
