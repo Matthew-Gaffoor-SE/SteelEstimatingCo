@@ -1,8 +1,3 @@
-<?php
-    include('includes/sessions.inc.php');
-    include('includes/authenticate.inc.php');
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,7 +27,7 @@
                     if($_SESSION["usertype"] == "Customer")
                     {
                         echo "<nav class=\"header-main-nav\">";
-                        echo "<div class=\"MenuOptions\" onclick=\"location.href='Homepage.php'\"><p class=\"MenuTxt\">HOME</p></div>";
+                        echo "<div class=\"MenuOptions\" onclick=\"location.href='login-homepage.php'\"><p class=\"MenuTxt\">HOME</p></div>";
                         echo "<div class=\"MenuOptions\" onclick=\"location.href='ProfilePage.php'\"><p class=\"MenuTxt\">PROFILE</p></div>";
                         echo "<div class=\"MenuOptions\" onclick=\"location.href='Messages-Home.php'\"><p class=\"MenuTxt\">MESSAGES</p></div>";
                         echo "<div class=\"MenuOptions\" onclick=\"location.href='JobHomepage.php'\"><p class=\"MenuTxt\">JOBS</p></div>";
@@ -43,7 +38,7 @@
                     else if($_SESSION["usertype"] == "Estimator")
                     {
                         echo "<nav class=\"header-main-nav\">";
-                        echo "<div class=\"MenuOptions\" onclick=\"location.href='Homepage.php'\"><p class=\"MenuTxt\">HOME</p></div>";
+                        echo "<div class=\"MenuOptions\" onclick=\"location.href='login-homepage.php'\"><p class=\"MenuTxt\">HOME</p></div>";
                         echo "<div class=\"MenuOptions\" onclick=\"location.href='ProfilePage.php'\"><p class=\"MenuTxt\">PROFILE</p></div>";
                         echo "<div class=\"MenuOptions\" onclick=\"location.href='Messages-Home.php'\"><p class=\"MenuTxt\">MESSAGES</p></div>";
                         echo "<div class=\"MenuOptions\" onclick=\"location.href='Estimator-Job-Homepage.php'\"><p class=\"MenuTxt\">JOBS</p></div>";

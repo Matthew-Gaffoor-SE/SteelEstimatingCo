@@ -1,4 +1,5 @@
 <?php
+    session_start();
 
     if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1800)) {
         // last request was more than 30 minutes ago
@@ -12,5 +13,9 @@
         // session started more than 30 minutes ago
         session_regenerate_id(true);    // change session ID for the current session and invalidate old session ID
         $_SESSION['CREATED'] = time();  // update creation time
+    }
+    if(!isset($_SESSION["usersID"]))
+    {
+    header("Location: /LoginPage.php");
     }
 ?>

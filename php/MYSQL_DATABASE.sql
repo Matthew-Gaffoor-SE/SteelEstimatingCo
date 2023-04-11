@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db
--- Generation Time: Mar 28, 2023 at 09:40 PM
+-- Generation Time: Apr 11, 2023 at 08:39 PM
 -- Server version: 8.0.32
 -- PHP Version: 8.1.17
 
@@ -29,6 +29,21 @@ CREATE TABLE `Complaints` (
   `Category` varchar(40) NOT NULL,
   `UserSubject` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `Complete` tinyint DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `google_users`
+--
+
+CREATE TABLE `google_users` (
+  `id` int NOT NULL,
+  `firstname` varchar(100) NOT NULL,
+  `lastname` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `password` varchar(200) NOT NULL,
+  `session` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -64,13 +79,6 @@ CREATE TABLE `Messages` (
   `isread` tinyint NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
---
--- Dumping data for table `Messages`
---
-
-INSERT INTO `Messages` (`messageID`, `sendID`, `recieverID`, `todayDate`, `title`, `subject`, `isread`) VALUES
-(6, 1, 1, '2023-03-28', 'dad', 'asdadadaddas', 2);
-
 -- --------------------------------------------------------
 
 --
@@ -83,12 +91,19 @@ CREATE TABLE `profileimg` (
   `status` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `profileimg`
+-- Table structure for table `pwdReset`
 --
 
-INSERT INTO `profileimg` (`profile_id`, `userID`, `status`) VALUES
-(1, 2, 1);
+CREATE TABLE `pwdReset` (
+  `pwdResetId` int NOT NULL,
+  `pwdResetEmail` text NOT NULL,
+  `pwdResetSelector` text NOT NULL,
+  `pwdResetToken` longtext NOT NULL,
+  `pwdResetExpires` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -108,14 +123,6 @@ CREATE TABLE `Users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data for table `Users`
---
-
-INSERT INTO `Users` (`userID`, `Firstname`, `Lastname`, `Username`, `Email`, `Usertype`, `Password`, `Auth`) VALUES
-(1, 'a', 'aa', 'aa', 'aa@hotmail.com', 'Customer', '$2y$10$e4ff8gfuPB9L5pM1gTQRoOCzdF/ln5HTG9ClqwN/RVXBISoY2XdWi', 0),
-(2, 'aa', 'aaa', 'aaa', 'aaa@hotmail.com', 'Customer', '$2y$10$4C72lHkfDTimdrFzNEsjBeT1B7Sp9OzHrX.L5ZHxT7yULHDmmkqRS', 0);
-
---
 -- Indexes for dumped tables
 --
 
@@ -124,6 +131,12 @@ INSERT INTO `Users` (`userID`, `Firstname`, `Lastname`, `Username`, `Email`, `Us
 --
 ALTER TABLE `Complaints`
   ADD PRIMARY KEY (`CaseID`);
+
+--
+-- Indexes for table `google_users`
+--
+ALTER TABLE `google_users`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `Listings`
@@ -144,6 +157,12 @@ ALTER TABLE `profileimg`
   ADD PRIMARY KEY (`profile_id`);
 
 --
+-- Indexes for table `pwdReset`
+--
+ALTER TABLE `pwdReset`
+  ADD PRIMARY KEY (`pwdResetId`);
+
+--
 -- Indexes for table `Users`
 --
 ALTER TABLE `Users`
@@ -160,26 +179,38 @@ ALTER TABLE `Complaints`
   MODIFY `CaseID` int NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `google_users`
+--
+ALTER TABLE `google_users`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `Listings`
 --
 ALTER TABLE `Listings`
-  MODIFY `listingID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `listingID` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `Messages`
 --
 ALTER TABLE `Messages`
-  MODIFY `messageID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `messageID` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `profileimg`
 --
 ALTER TABLE `profileimg`
-  MODIFY `profile_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `profile_id` int NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `pwdReset`
+--
+ALTER TABLE `pwdReset`
+  MODIFY `pwdResetId` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `Users`
 --
 ALTER TABLE `Users`
-  MODIFY `userID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `userID` int NOT NULL AUTO_INCREMENT;
 COMMIT;

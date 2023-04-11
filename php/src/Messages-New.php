@@ -1,6 +1,5 @@
 <?php
     include ('includes/conn.inc.php');
-    include('includes/sessions.inc.php');
     include('includes/authenticate.inc.php');
     include_once "header.php";
     

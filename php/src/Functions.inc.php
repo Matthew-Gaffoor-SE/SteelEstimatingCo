@@ -139,7 +139,7 @@ function loginUser($mysqli, $Username, $Password) {
         $_SESSION["firstname"] = $uidexists["Firstname"];
         $_SESSION["lastname"] = $uidexists["Lastname"];
         $_SESSION["email"] = $uidexists["Email"];
-        header("location: ../Homepage.php");
+        header("location: ../login-homepage.php");
         exit();
     }
 }
